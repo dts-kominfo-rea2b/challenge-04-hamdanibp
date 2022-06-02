@@ -8,7 +8,14 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (dates, index = -1) => {
+  const miliseconds = dates.map(milisecond => new Date(milisecond).getTime());
+  const seconds = miliseconds.map(second => second / 1000);
+  
+  const results = (index == -1) ? seconds : seconds.splice(index, 1);
+
+  return results.sort((a, b) => a - b).join("-");
+};
 
 // ! JANGAN DIMODIFIKASI
 (() => {
